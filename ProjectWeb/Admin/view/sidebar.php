@@ -32,8 +32,32 @@
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-        <li><a href="#"><i class="fa fa-sticky-note"></i><span>Post</span></a></li>
-        <li><a href="#"><i class="fa fa-profile"></i> <span>Profile</span></a></li>
+        
+        <li class="treeview">
+          <a href="#"><i class="fa fa-user"></i> <span>Post</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+              <li><a href="index.php?view=list_post">List Post</a></li>
+              <li><a href="index.php?view=add_post">Add Post</a></li>
+          </ul>
+        </li>
+
+
+        <li class="treeview">
+          <a href="#"><i class="fa fa-user"></i> <span>Category</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+              <li><a href="index.php?view=list_category">List Category</a></li>
+              <li><a href="index.php?view=add_category">Add Category</a></li>
+          </ul>
+        </li>
+        
         <li class="treeview">
           <a href="#"><i class="fa fa-user"></i> <span>Users</span>
             <span class="pull-right-container">

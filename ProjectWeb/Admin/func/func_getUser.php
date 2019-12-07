@@ -2,7 +2,7 @@
     function getUser(){
 
         global $con;
-        $sql="select * from `tbl_users`";
+        $sql="select * from `users`";
         $result=$con->query($sql)->fetchAll();
         return $result;   
     }
@@ -15,7 +15,7 @@
     }
     function check_user($username){
         global $con;
-        $sql="SELECT * FROM `tbl_users` WHERE `name`='".$username."'";
+        $sql="SELECT * FROM `users` WHERE `name`='".$username."'";
         $result=$con->query($sql)->fetchAll();
         // var_dump($result);
         // die();
@@ -23,13 +23,13 @@
     }
     function add_user($username,$passsword,$role){
         global $con;
-        $sql="INSERT INTO `tbl_users` (`name`,`password`,`Role`) VALUES ('".$username."','".$passsword."','".$role."')";
+        $sql="INSERT INTO `users` (`name`,`password`,`Role`) VALUES ('".$username."','".$passsword."','".$role."')";
         $result=$con->exec($sql);
         return (bool)$result;
     }
     function login($username,$passsword){
         global $con;
-        $sql="SELECT * FROM `tbl_users` WHERE `name`='".$username."' AND `password`='".$passsword."'";
+        $sql="SELECT * FROM `users` WHERE `name`='".$username."' AND `password`='".$passsword."'";
         $result=$con->query($sql)->fetchAll();
         // var_dump($result);
         // die();

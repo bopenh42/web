@@ -1,7 +1,7 @@
 <?php
     $con='';
     function db_connection(){
-        $dsn='mysql:dbname=dbWebsite;host=127.0.0.1';
+        $dsn='mysql:dbname=tour;host=127.0.0.1';
         $user='root';
         $password='';
         $option=array(PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC);

@@ -11,6 +11,7 @@ ob_start();
 ?>
 <?php
   include('func/func_dbCon.php');
+  db_connection();
 ?>
 <?php
   include('func/func_helper.php');
@@ -27,7 +28,7 @@ ob_start();
     
 
       <?php 
-        db_connection();
+       
         $view='dashboard';
         if(isset($_GET['view'])){
           $view=$_GET['view'];
