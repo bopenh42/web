@@ -19,6 +19,7 @@
                 <tr>
                     <th>#</th>
                     <th>UserName</th>
+                    <th>Email</th>
                     <th>Role</th>
                     <th>Action</th>
                 </tr>
@@ -31,17 +32,13 @@
                 ?>
                 <tr>
                     <td><?= $user_id ?></td>
-                    <td><?= $row['name'] ?></td>
-                    <td><?= $row['Role'] ?></td>
+                    <td><?= $row['username'] ?></td>
+                    <td><?= $row['email'] ?></td>
+                    <td><?= $row['role'] ?></td>
                     <td><a href="#" data-toggle="modal" data-target="#user-modal-<?= $user_id?>">
                             <i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
-
-
-
-
-
                 <!-- Modal -->
                 <div class="modal fade" id="user-modal-<?= $user_id?>" tabindex="-1" role="dialog"
                     aria-labelledby="myModalLabel">
@@ -53,7 +50,7 @@
                                 <h4 class="modal-title" id="myModalLabel">Confirm Dialog</h4>
                             </div>
                             <div class="modal-body">
-                                Ara you sure do you want to delete user: <b><?= $row['name'] ?></b>?
+                                Ara you sure do you want to delete user: <b><?= $row['username'] ?></b>?
                             </div>
                             <div class="modal-footer">
                                 <form action="" method="POST">
@@ -65,17 +62,12 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
                 <?php } ?>
             <tfoot>
                 <tr>
                     <th>#</th>
                     <th>UserName</th>
+                    <th>Email</th>
                     <th>Role</th>
                     <th>Action</th>
                 </tr>

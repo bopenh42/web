@@ -2,34 +2,37 @@
     include('func/func_getUser.php');
     $username='';
     $password='';
-    $cpassword='';
+    $email='';
     $role='';
     $user_msg='';
     $user_error=[];
     if(isset($_POST['btn_save'])){
-      $username=$_POST['user_name'];
+      $username=$_POST['username'];
       $password=$_POST['password'];
-      $cpassword=$_POST['c_password'];
+      $email=$_POST['email'];
       $role=$_POST['role'];
       if(empty($username)){
-        $user_error['user_name']="has-error";
+        $user_error['username']="has-error";
       }
       if(empty($password)){
         $user_error['password']="has-error";
       }
-      if(empty($cpassword)){
-        $user_error['c_password']="has-error";
+      if(empty($email)){
+        $user_error['email']="has-error";
+      }
+      if(empty($role)){
+        $user_error['role']="has-error";
       }
     }
     if(count($user_error)==0){
         if(check_user($username)){
           $user_msg='</br><span class="label label-danger">your username have already exist!</span>';
       }else{
-        if($password!=$cpassword){
+        if($email!=$email){
           $user_msg='</br><span class="label label-danger">your Comfirm password incorrent!</span>';
         }else{
-          if(!(empty($username)||empty($password)||empty($cpassword))){
-            add_user($username,$password,$role);
+          if(!(empty($username)||empty($password)||empty($email)||empty($role))){
+            add_user($username,$password,$email,$role);
            header('location:index.php?view=list_users');
           }
           
@@ -49,18 +52,18 @@
             <!-- form start -->
             <form action="" method="POST" role="form">
               <div class="box-body">
-                <div class="form-group <?= show_error($user_error,'user_name');?>">
+                <div class="form-group <?= show_error($user_error,'username');?>">
                   <label >User Name</label>
-                  <input type="text" class="form-control" value="<?= $username ?>" name="user_name" placeholder="Enter Username">
+                  <input type="text" class="form-control" value="<?= $username ?>" name="username" placeholder="Enter Username">
                 </div>
                 <div class="form-group <?= show_error($user_error,'password');?>">
                   <label >Password</label>
                   <input type="password" class="form-control" name="password" placeholder="Password">
                 </div>
 
-                <div class="form-group <?= show_error($user_error,'c_password');?>">
-                  <label >Confrim Password</label>
-                  <input type="password" class="form-control" name="c_password" placeholder="Confrim Password">
+                <div class="form-group <?= show_error($user_error,'email');?>">
+                  <label >Email</label>
+                  <input type="text" class="form-control" name="email" placeholder="Email">
                 </div>
                 <div class="form-group">
                   <label >Role</label>

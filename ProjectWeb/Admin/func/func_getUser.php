@@ -15,21 +15,21 @@
     }
     function check_user($username){
         global $con;
-        $sql="SELECT * FROM `users` WHERE `name`='".$username."'";
+        $sql="SELECT * FROM `users` WHERE `username`='".$username."'";
         $result=$con->query($sql)->fetchAll();
         // var_dump($result);
         // die();
         return (bool) count($result);
     }
-    function add_user($username,$passsword,$role){
+    function add_user($username,$email,$passsword,$role){
         global $con;
-        $sql="INSERT INTO `users` (`name`,`password`,`Role`) VALUES ('".$username."','".$passsword."','".$role."')";
+        $sql="INSERT INTO `users` (`username`,`email`,`password`,`Role`) VALUES ('".$username."','".$email."','".$passsword."','".$role."')";
         $result=$con->exec($sql);
         return (bool)$result;
     }
-    function login($username,$passsword){
+    function login($email,$passsword){
         global $con;
-        $sql="SELECT * FROM `users` WHERE `name`='".$username."' AND `password`='".$passsword."'";
+        $sql="SELECT * FROM `users` WHERE `email`='".$email."' AND `password`='".$passsword."'";
         $result=$con->query($sql)->fetchAll();
         // var_dump($result);
         // die();

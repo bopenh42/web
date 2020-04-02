@@ -40,21 +40,21 @@ session_start();
 
 <?php 
         // print_r($_POST);
-        $username='';
+        $email='';
         $password='';
         $longin_err=[];
         $login_msg='';
         if(isset($_POST['btn_SingIn'])){
-           $username=$_POST['user_name'];
+           $email=$_POST['email'];
            $password=$_POST['password'];
-           if(empty($username)){
-             $longin_err['user_name']='has-error';
+           if(empty($email)){
+             $longin_err['email']='has-error';
            }
            if(empty($password)){
              $longin_err['password']='has-error';
            }
            if(count($longin_err)==0){
-              $relsult_longin=login($username,$password);
+              $relsult_longin=login($email,$password);
               if(!$relsult_longin){
                 $login_msg='</br><span class="label label-danger">your user and password incorrent</span>';
               }else{
@@ -76,8 +76,8 @@ session_start();
     </p>
    
     <form action="" method="post">
-      <div class="form-group has-feedback <?= show_error($longin_err,'user_name')?>">
-        <input type="text" name="user_name" value="<?= $username?>" class="form-control" placeholder="UserName">
+      <div class="form-group has-feedback <?= show_error($longin_err,'email')?>">
+        <input type="text" name="email" value="<?= $email?>" class="form-control" placeholder="Email">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback <?= show_error($longin_err,'password')?>">
